@@ -13,28 +13,28 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let redViewController = UIViewController()
-        redViewController.view.backgroundColor = .white
-        redViewController.navigationItem.title = "Apps"
+        let appsViewController = UIViewController()
+        appsViewController.view.backgroundColor = .white
+        appsViewController.navigationItem.title = "Apps"
         
-        let blueViewController = UIViewController()
-        blueViewController.view.backgroundColor = .white
-        blueViewController.navigationItem.title = "Search"
+        let searchViewController = UIViewController()
+        searchViewController.view.backgroundColor = .white
+        searchViewController.navigationItem.title = "Search"
         
-        let redNavController = UINavigationController(rootViewController: redViewController)
-        let blueNavController = UINavigationController(rootViewController: blueViewController)
+        let appNavController = UINavigationController(rootViewController: appsViewController)
+        let searchNavController = UINavigationController(rootViewController: searchViewController)
         
-        redNavController.tabBarItem.title = "Apps"
-        redNavController.tabBarItem.image = UIImage(named: "apps")
-        redNavController.navigationBar.prefersLargeTitles = true
-        blueNavController.tabBarItem.title = "Search"
-        blueNavController.tabBarItem.image = UIImage(named: "search")
-        blueNavController.navigationBar.prefersLargeTitles = true
+        appNavController.tabBarItem.title = "Apps"
+        appNavController.tabBarItem.image = UIImage(named: "apps")
+        appNavController.navigationBar.prefersLargeTitles = true
+        searchNavController.tabBarItem.title = "Search"
+        searchNavController.tabBarItem.image = UIImage(named: "search")
+        searchNavController.navigationBar.prefersLargeTitles = true
         
         
         viewControllers = [
-            redNavController,
-            blueNavController
+            appNavController,
+            searchNavController
         ]
         
     }
