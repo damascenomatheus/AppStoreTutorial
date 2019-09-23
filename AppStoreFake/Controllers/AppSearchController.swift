@@ -10,18 +10,10 @@ import Foundation
 import UIKit
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    override init(collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Test")
     }
     
