@@ -97,12 +97,12 @@
 		A423097323229D9800B97A3A /* AppStoreFake */ = {
 			isa = PBXGroup;
 			children = (
+				A4399AB52338F95B00095318 /* Controllers */,
 				A423097423229D9800B97A3A /* AppDelegate.swift */,
 				A423097623229D9800B97A3A /* ViewController.swift */,
 				A423097B23229D9A00B97A3A /* Assets.xcassets */,
 				A423097D23229D9A00B97A3A /* LaunchScreen.storyboard */,
 				A423098023229D9A00B97A3A /* Info.plist */,
-				A42309A22322A58100B97A3A /* BaseTabBarController.swift */,
 			);
 			path = AppStoreFake;
 			sourceTree = "<group>";
@@ -123,6 +123,14 @@
 				A423099623229D9A00B97A3A /* Info.plist */,
 			);
 			path = AppStoreFakeUITests;
+			sourceTree = "<group>";
+		};
+		A4399AB52338F95B00095318 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A42309A22322A58100B97A3A /* BaseTabBarController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
