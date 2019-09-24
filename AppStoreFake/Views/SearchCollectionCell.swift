@@ -14,12 +14,14 @@ class SearchCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
         return imageView
     }()
     
     let appTitle: UILabel = {
         let label = UILabel()
         label.text = "App Name"
+        label.font.withSize(11)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,11 +34,12 @@ class SearchCollectionCell: UICollectionViewCell {
     }()
     
     let getButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 20))
+        let buttonColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
         button.setTitle("GET", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(buttonColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "Arial", size: 10)
-        button.backgroundColor = .gray
+        button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = button.frame.height/2
         return button
@@ -68,14 +71,14 @@ class SearchCollectionCell: UICollectionViewCell {
             appTitle.heightAnchor.constraint(equalToConstant: 20),
             appTitle.leadingAnchor.constraint(equalTo: appImage.trailingAnchor, constant: 8),
         
-            appSubTitle.topAnchor.constraint(equalTo: appTitle.bottomAnchor, constant: 6),
+            appSubTitle.topAnchor.constraint(equalTo: appTitle.bottomAnchor, constant: 4),
             appSubTitle.leadingAnchor.constraint(equalTo: appImage.trailingAnchor, constant: 8),
             appSubTitle.widthAnchor.constraint(equalToConstant: self.frame.width),
             appSubTitle.heightAnchor.constraint(equalToConstant: 20),
             
             getButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             getButton.heightAnchor.constraint(equalToConstant: 20),
-            getButton.widthAnchor.constraint(equalToConstant: 40),
+            getButton.widthAnchor.constraint(equalToConstant: 50),
             getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
             
         ])
