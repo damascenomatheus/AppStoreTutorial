@@ -19,20 +19,26 @@ class SearchCollectionCell: UICollectionViewCell {
     
     let appTitle: UILabel = {
         let label = UILabel()
-        label.text = "Teste"
+        label.text = "App Name"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let appSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "Teste2"
+        label.text = "App Description"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let getButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        button.setTitle("GET", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Arial", size: 10)
+        button.backgroundColor = .gray
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = button.frame.height/2
         return button
     }()
     
@@ -47,7 +53,7 @@ class SearchCollectionCell: UICollectionViewCell {
     }
     
     func buildViewHierarchy() {
-        addSubviews([appImage,appTitle,appSubTitle])
+        addSubviews([appImage,appTitle,appSubTitle, getButton])
     }
     
     func setupConstraints() {
@@ -65,7 +71,13 @@ class SearchCollectionCell: UICollectionViewCell {
             appSubTitle.topAnchor.constraint(equalTo: appTitle.bottomAnchor, constant: 6),
             appSubTitle.leadingAnchor.constraint(equalTo: appImage.trailingAnchor, constant: 8),
             appSubTitle.widthAnchor.constraint(equalToConstant: self.frame.width),
-            appSubTitle.heightAnchor.constraint(equalToConstant: 20)
+            appSubTitle.heightAnchor.constraint(equalToConstant: 20),
+            
+            getButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            getButton.heightAnchor.constraint(equalToConstant: 20),
+            getButton.widthAnchor.constraint(equalToConstant: 40),
+            getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            
         ])
     }
     
