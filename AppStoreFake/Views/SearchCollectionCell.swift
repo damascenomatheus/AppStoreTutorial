@@ -33,21 +33,13 @@ class SearchCollectionCell: UICollectionViewCell {
         return label
     }()
     
-    let getButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
-        button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = button.frame.height/2
-        return button
-    }()
-    
+    let getButton = CustomButton(type: .system)
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildViewHierarchy()
         setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
