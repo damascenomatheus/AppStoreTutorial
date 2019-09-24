@@ -34,11 +34,10 @@ class SearchCollectionCell: UICollectionViewCell {
     }()
     
     let getButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 0, height: 20))
-        let buttonColor = #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1)
+        let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
-        button.setTitleColor(buttonColor, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Arial", size: 10)
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 13)
         button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = button.frame.height/2
