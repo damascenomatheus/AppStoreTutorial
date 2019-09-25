@@ -58,7 +58,6 @@ class SearchCollectionCell: UICollectionViewCell {
             getButton.heightAnchor.constraint(equalToConstant: 20),
             getButton.widthAnchor.constraint(equalToConstant: 50),
             getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
-            
         ])
     }
     
