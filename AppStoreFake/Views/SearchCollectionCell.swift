@@ -18,21 +18,8 @@ class SearchCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    let appTitle: UILabel = {
-        let label = UILabel()
-        label.text = "App Name"
-        label.font.withSize(11)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let appSubTitle: UILabel = {
-        let label = UILabel()
-        label.text = "App Description"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    let appTitle = UILabel(title: "App Name")
+    let appSubTitle = UILabel(title: "App Description")
     let getButton = CustomButton(type: .system)
         
     override init(frame: CGRect) {
