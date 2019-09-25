@@ -14,7 +14,6 @@ class CustomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        layer.cornerRadius = frame.height/2
         setTitle("GET", for: .normal)
         setTitleColor(.blue, for: .normal)
         titleLabel?.font = .boldSystemFont(ofSize: 13)
@@ -23,6 +22,11 @@ class CustomButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = frame.height/2
     }
     
 }
