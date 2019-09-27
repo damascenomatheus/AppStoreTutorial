@@ -38,7 +38,7 @@ class SearchCollectionCell: UICollectionViewCell {
     func setupStackView() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
-        stackView.addSubviews([
+        stackView.addArrangedSubviews([
             appImage,
             appTitle,
             categoryLabel,
