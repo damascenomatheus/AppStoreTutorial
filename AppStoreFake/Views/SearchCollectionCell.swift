@@ -14,12 +14,13 @@ class SearchCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
         return imageView
     }()
     
-    let appTitle = UILabel(title: "App Name")
-    let categoryLabel = UILabel(title: "Photos & Video")
-    let ratingsLabel = UILabel(title: "9.26M")
+    let appTitle = UILabel(title: "App Name", fontSize: 14, color: .black)
+    let categoryLabel = UILabel(title: "Photos & Video", fontSize: 14, color: .black)
+    let ratingsLabel = UILabel(title: "9.26M", fontSize: 12, color: .lightGray)
     let getButton = CustomButton(type: .system)
     let horizontalStackView = UIStackView()
     let verticalStackView = UIStackView()
@@ -47,7 +48,7 @@ class SearchCollectionCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            horizontalStackView.heightAnchor.constraint(equalToConstant: frame.height),
+            horizontalStackView.heightAnchor.constraint(equalToConstant: 44),
             horizontalStackView.widthAnchor.constraint(equalToConstant: frame.width)
         ])
         
