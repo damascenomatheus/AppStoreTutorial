@@ -40,8 +40,6 @@ class SearchCollectionCell: UICollectionViewCell {
         horizontalStackView.addArrangedSubviews([
             appImage,
             appTitle,
-            //categoryLabel,
-            //ratingsLabel,
             getButton
         ])
         
@@ -54,26 +52,8 @@ class SearchCollectionCell: UICollectionViewCell {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
-//            appImage.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-//            appImage.heightAnchor.constraint(equalToConstant: 44),
             appImage.widthAnchor.constraint(equalToConstant: 64),
-//            appImage.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 16),
-//
-//            appTitle.topAnchor.constraint(equalTo: appImage.topAnchor),
-//            appTitle.widthAnchor.constraint(equalToConstant: self.frame.width),
-//            appTitle.heightAnchor.constraint(equalToConstant: 20),
-//            appTitle.leadingAnchor.constraint(equalTo: appImage.trailingAnchor, constant: 8),
-//
-//            categoryLabel.topAnchor.constraint(equalTo: appTitle.bottomAnchor, constant: 4),
-//            categoryLabel.leadingAnchor.constraint(equalTo: appImage.trailingAnchor, constant: 8),
-//            categoryLabel.widthAnchor.constraint(equalToConstant: self.frame.width),
-//            categoryLabel.heightAnchor.constraint(equalToConstant: 20),
-//
-//            getButton.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-//            getButton.heightAnchor.constraint(equalToConstant: 20),
             getButton.widthAnchor.constraint(equalToConstant: 80),
-//            getButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16)
         ])
     }
     
