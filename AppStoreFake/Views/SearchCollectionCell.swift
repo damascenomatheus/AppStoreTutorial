@@ -22,6 +22,7 @@ class SearchCollectionCell: UICollectionViewCell {
     let ratingsLabel = UILabel(title: "9.26M")
     let getButton = CustomButton(type: .system)
     let horizontalStackView = UIStackView()
+    let verticalStackView = UIStackView()
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,19 +36,28 @@ class SearchCollectionCell: UICollectionViewCell {
     }
     
     func setupStackView() {
+        addSubviews([horizontalStackView,verticalStackView])
+        
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
         horizontalStackView.spacing = 12
         horizontalStackView.addArrangedSubviews([
             appImage,
-            appTitle,
+            verticalStackView,
             getButton
         ])
         
-        addSubview(horizontalStackView)
         NSLayoutConstraint.activate([
-            horizontalStackView.heightAnchor.constraint(equalToConstant: 50),
+            horizontalStackView.heightAnchor.constraint(equalToConstant: frame.height),
             horizontalStackView.widthAnchor.constraint(equalToConstant: frame.width)
         ])
+        
+        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        verticalStackView.addArrangedSubviews([
+            appTitle,
+            categoryLabel,
+            ratingsLabel
+        ])
+        verticalStackView.axis = .vertical
     }
     
     func setupConstraints() {
