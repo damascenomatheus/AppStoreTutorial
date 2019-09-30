@@ -14,13 +14,13 @@ class SearchCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 12
         return imageView
     }()
     
-    let appTitle = UILabel(title: "App Name", fontSize: 14, color: .black)
-    let categoryLabel = UILabel(title: "Photos & Video", fontSize: 14, color: .black)
-    let ratingsLabel = UILabel(title: "9.26M", fontSize: 12, color: .lightGray)
+    let appTitle = UILabel(title: "App Name", fontSize: 18, color: .black)
+    let categoryLabel = UILabel(title: "Photos & Video", fontSize: 16, color: .black)
+    let ratingsLabel = UILabel(title: "9.26M", fontSize: 16, color: .lightGray)
     let getButton = CustomButton(type: .system)
     let horizontalStackView = UIStackView()
     let verticalStackView = UIStackView()
@@ -47,8 +47,10 @@ class SearchCollectionCell: UICollectionViewCell {
             getButton
         ])
         
+        horizontalStackView.alignment = .center
+        
         NSLayoutConstraint.activate([
-            horizontalStackView.heightAnchor.constraint(equalToConstant: 44),
+            horizontalStackView.heightAnchor.constraint(equalToConstant: frame.height),
             horizontalStackView.widthAnchor.constraint(equalToConstant: frame.width)
         ])
         
@@ -64,6 +66,7 @@ class SearchCollectionCell: UICollectionViewCell {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             appImage.widthAnchor.constraint(equalToConstant: 64),
+            appImage.heightAnchor.constraint(equalToConstant: 64),
             getButton.widthAnchor.constraint(equalToConstant: 80),
         ])
     }
