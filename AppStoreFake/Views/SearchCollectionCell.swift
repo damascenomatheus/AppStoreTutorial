@@ -27,6 +27,7 @@ class SearchCollectionCell: UICollectionViewCell {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
+        buildViewHierarchy()
         setupStackView()
         setupConstraints()
         
@@ -36,25 +37,22 @@ class SearchCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupStackView() {
+    func buildViewHierarchy(){
         addSubviews([horizontalStackView,verticalStackView])
-        
+    }
+    
+    func setupStackView() {
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
+        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         horizontalStackView.spacing = 12
+        horizontalStackView.alignment = .center
+        
         horizontalStackView.addArrangedSubviews([
             appImage,
             verticalStackView,
             getButton
         ])
         
-        horizontalStackView.alignment = .center
-        
-        NSLayoutConstraint.activate([
-            horizontalStackView.heightAnchor.constraint(equalToConstant: frame.height),
-            horizontalStackView.widthAnchor.constraint(equalToConstant: frame.width)
-        ])
-        
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.addArrangedSubviews([
             appTitle,
             categoryLabel,
@@ -65,6 +63,10 @@ class SearchCollectionCell: UICollectionViewCell {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            horizontalStackView.topAnchor.constraint(equalTo: topAnchor),
+            horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             appImage.widthAnchor.constraint(equalToConstant: 64),
             appImage.heightAnchor.constraint(equalToConstant: 64),
             getButton.widthAnchor.constraint(equalToConstant: 80),
