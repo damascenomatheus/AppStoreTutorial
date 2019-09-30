@@ -16,7 +16,6 @@ class CustomButton: UIButton {
         backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         setTitle("GET", for: .normal)
         setTitleColor(.blue, for: .normal)
-        titleLabel?.font = .boldSystemFont(ofSize: 13)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
