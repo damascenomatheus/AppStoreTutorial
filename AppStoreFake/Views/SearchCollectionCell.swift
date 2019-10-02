@@ -70,6 +70,7 @@ class SearchCollectionCell: UICollectionViewCell {
             appImage.widthAnchor.constraint(equalToConstant: 64),
             appImage.heightAnchor.constraint(equalToConstant: 64),
             getButton.widthAnchor.constraint(equalToConstant: 80),
+            getButton.heightAnchor.constraint(equalToConstant: 32),
         ])
     }
     
