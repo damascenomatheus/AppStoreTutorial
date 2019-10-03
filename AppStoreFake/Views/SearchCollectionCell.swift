@@ -22,8 +22,21 @@ class SearchCollectionCell: UICollectionViewCell {
     let categoryLabel = UILabel(title: "Photos & Video", fontSize: 16, color: .black)
     let ratingsLabel = UILabel(title: "9.26M", fontSize: 16, color: .lightGray)
     let getButton = CustomButton(type: .system)
-    let horizontalStackView = UIStackView()
-    let verticalStackView = UIStackView()
+    let infoStackView = UIStackView(false)
+    let labelsStackView = UIStackView(false)
+    let screenshotStackView = UIStackView(false)
+    let cellStackView = UIStackView(false)
+    
+    lazy var screenshotImage1 = self.createScreenshotImageView()
+    lazy var screenshotImage2 = self.createScreenshotImageView()
+    lazy var screenshotImage3 = self.createScreenshotImageView()
+    
+    func createScreenshotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .blue
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,35 +51,49 @@ class SearchCollectionCell: UICollectionViewCell {
     }
     
     func buildViewHierarchy(){
-        addSubviews([horizontalStackView,verticalStackView])
+        addSubviews([infoStackView,labelsStackView,screenshotStackView,cellStackView])
     }
     
     func setupStackView() {
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView.spacing = 12
-        horizontalStackView.alignment = .center
+        screenshotStackView.distribution = .fillEqually
+        screenshotStackView.spacing = 12
+        cellStackView.spacing = 16
+        infoStackView.spacing = 12
+        infoStackView.alignment = .center
+        labelsStackView.axis = .vertical
+        cellStackView.axis = .vertical
         
-        horizontalStackView.addArrangedSubviews([
+        infoStackView.addArrangedSubviews([
             appImage,
-            verticalStackView,
+            labelsStackView,
             getButton
         ])
         
-        verticalStackView.addArrangedSubviews([
+        labelsStackView.addArrangedSubviews([
             appTitle,
             categoryLabel,
             ratingsLabel
         ])
-        verticalStackView.axis = .vertical
+        
+        
+        screenshotStackView.addArrangedSubviews([
+            screenshotImage1,
+            screenshotImage2,
+            screenshotImage3
+        ])
+        
+        cellStackView.addArrangedSubviews([
+            infoStackView,
+            screenshotStackView
+        ])
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStackView.topAnchor.constraint(equalTo: topAnchor),
-            horizontalStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            horizontalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            horizontalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            cellStackView.topAnchor.constraint(equalTo: topAnchor),
+            cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             appImage.widthAnchor.constraint(equalToConstant: 64),
             appImage.heightAnchor.constraint(equalToConstant: 64),
             getButton.widthAnchor.constraint(equalToConstant: 80),

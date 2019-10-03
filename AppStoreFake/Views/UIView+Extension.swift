@@ -10,6 +10,11 @@ import UIKit
 
 extension UIView {
     
+    convenience init(_ status: Bool) {
+        self.init()
+        translatesAutoresizingMaskIntoConstraints = status
+    }
+    
     func addSubviews(_ views: [UIView]) {
         views.forEach { (view) in
             self.addSubview(view)
