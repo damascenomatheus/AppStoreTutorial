@@ -23,9 +23,9 @@ class SearchCollectionCell: UICollectionViewCell {
     let ratingsLabel = UILabel(title: "9.26M", fontSize: 16, color: .lightGray)
     let getButton = CustomButton(type: .system)
     let infoStackView = UIStackView(false)
-    let labelsStackView = UIStackView(false)
+    let labelsStackView = VerticalStackView(spacing: 0)
     let screenshotStackView = UIStackView(false)
-    let cellStackView = UIStackView(false)
+    let cellStackView = VerticalStackView(spacing: 16)
     
     lazy var screenshotImage1 = self.createScreenshotImageView()
     lazy var screenshotImage2 = self.createScreenshotImageView()
@@ -57,11 +57,10 @@ class SearchCollectionCell: UICollectionViewCell {
     func setupStackView() {
         screenshotStackView.distribution = .fillEqually
         screenshotStackView.spacing = 12
-        cellStackView.spacing = 16
+
         infoStackView.spacing = 12
         infoStackView.alignment = .center
-        labelsStackView.axis = .vertical
-        cellStackView.axis = .vertical
+        
         
         infoStackView.addArrangedSubviews([
             appImage,
@@ -94,8 +93,10 @@ class SearchCollectionCell: UICollectionViewCell {
             cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            
             appImage.widthAnchor.constraint(equalToConstant: 64),
             appImage.heightAnchor.constraint(equalToConstant: 64),
+            
             getButton.widthAnchor.constraint(equalToConstant: 80),
             getButton.heightAnchor.constraint(equalToConstant: 32),
         ])
