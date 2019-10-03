@@ -18,6 +18,7 @@
 		A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */; };
 		A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD24233A92EA00E20D15 /* CustomButton.swift */; };
 		A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */; };
+		A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A4BBBD24233A92EA00E20D15 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		A423097323229D9800B97A3A /* AppStoreFake */ = {
 			isa = PBXGroup;
 			children = (
+				A4BBBD292346BACC00E20D15 /* Helpers */,
 				A439C5E7233944AA00D2D87C /* Views */,
 				A4399AB52338F95B00095318 /* Controllers */,
 				A423097423229D9800B97A3A /* AppDelegate.swift */,
@@ -146,11 +149,19 @@
 			isa = PBXGroup;
 			children = (
 				A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */,
-				A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */,
-				A4BBBD24233A92EA00E20D15 /* CustomButton.swift */,
-				A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A4BBBD292346BACC00E20D15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */,
+				A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */,
+				A4BBBD24233A92EA00E20D15 /* CustomButton.swift */,
+				A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +299,7 @@
 				A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */,
 				A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */,
 				A439C5E62338FE5800D2D87C /* AppSearchController.swift in Sources */,
+				A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */,
 				A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */,
 				A439C5E9233944F900D2D87C /* SearchCollectionCell.swift in Sources */,
 			);
