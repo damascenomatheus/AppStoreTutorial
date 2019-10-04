@@ -23,6 +23,24 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionCell.self, forCellWithReuseIdentifier: "Test")
+        
+        fetchItunesApps()
+    }
+    
+    fileprivate func fetchItunesApps() {
+        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            
+            if let error = err {
+                print("Failed to fetch apps: ", error)
+                return
+            }
+            
+            print(data)
+        }.resume()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
