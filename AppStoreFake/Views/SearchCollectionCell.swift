@@ -88,18 +88,35 @@ class SearchCollectionCell: UICollectionViewCell {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            cellStackView.topAnchor.constraint(equalTo: topAnchor),
-            cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            
-            appImage.widthAnchor.constraint(equalToConstant: 64),
-            appImage.heightAnchor.constraint(equalToConstant: 64),
-            
-            getButton.widthAnchor.constraint(equalToConstant: 80),
-            getButton.heightAnchor.constraint(equalToConstant: 32),
-        ])
+        
+        cellStackView.cBuilder{ make in
+            make.top.equal(to: topAnchor)
+            make.bottom.equal(to: bottomAnchor)
+            make.leading.equal(to: leadingAnchor, offsetBy: 16)
+            make.trailing.equal(to: trailingAnchor, offsetBy: -16)
+        }
+        
+        appImage.cBuild(width: 64)
+        appImage.cBuild(height: 64)
+        
+        getButton.cBuild(width: 80)
+        getButton.cBuild(height: 32)
+        
+        
+        
+//        
+//        NSLayoutConstraint.activate([
+//            cellStackView.topAnchor.constraint(equalTo: topAnchor),
+//            cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+//            
+//            appImage.widthAnchor.constraint(equalToConstant: 64),
+//            appImage.heightAnchor.constraint(equalToConstant: 64),
+//            
+//            getButton.widthAnchor.constraint(equalToConstant: 80),
+//            getButton.heightAnchor.constraint(equalToConstant: 32),
+//        ])
     }
     
 }
