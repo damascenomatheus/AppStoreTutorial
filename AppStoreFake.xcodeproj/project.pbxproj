@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A410DB2E235408CF00B91131 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410DB2D235408CF00B91131 /* Result.swift */; };
 		A423097523229D9800B97A3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423097423229D9800B97A3A /* AppDelegate.swift */; };
 		A423097C23229D9A00B97A3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A423097B23229D9A00B97A3A /* Assets.xcassets */; };
 		A423097F23229D9A00B97A3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A423097D23229D9A00B97A3A /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A410DB2D235408CF00B91131 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		A423097123229D9800B97A3A /* AppStoreFake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreFake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A423097423229D9800B97A3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A423097B23229D9A00B97A3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A410DB2C235408BE00B91131 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A410DB2D235408CF00B91131 /* Result.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A423096823229D9800B97A3A = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		A423097323229D9800B97A3A /* AppStoreFake */ = {
 			isa = PBXGroup;
 			children = (
+				A410DB2C235408BE00B91131 /* Model */,
 				A4BBBD292346BACC00E20D15 /* Helpers */,
 				A439C5E7233944AA00D2D87C /* Views */,
 				A4399AB52338F95B00095318 /* Controllers */,
@@ -301,6 +312,7 @@
 				A439C5E62338FE5800D2D87C /* AppSearchController.swift in Sources */,
 				A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */,
 				A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */,
+				A410DB2E235408CF00B91131 /* Result.swift in Sources */,
 				A439C5E9233944F900D2D87C /* SearchCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
