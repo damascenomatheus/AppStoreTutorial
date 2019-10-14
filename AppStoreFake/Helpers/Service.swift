@@ -13,12 +13,13 @@ class Service {
     static let shared = Service()
     
     
-    func fetchApi(url: String, completion: @escaping (SearchResult) -> ()) {
+    func fetchApi(url: String, completion: @escaping ([Result], Error?) -> ()) {
         let urlString = url
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             if let error = err {
                 print("Failed to fetch apps: ", error)
+                completion([],error)
                 return
             }
                 
@@ -26,11 +27,12 @@ class Service {
                 
             do {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                completion(searchResult)
+                completion(searchResult.results, nil)
                 
                 
             } catch let jsonError {
                 print("Failed to load json: ", jsonError)
+                completion([],jsonError)
             }
             
         }.resume()

@@ -31,8 +31,14 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
     
     func fetchItunesApps() {
         let urlItunes = "https://itunes.apple.com/search?term=instagram&entity=software"
-        Service.shared.fetchApi(url: urlItunes) { (searchResult) in
-            self.appResult = searchResult.results
+        Service.shared.fetchApi(url: urlItunes) { (results, error) in
+            //fail case
+            if let err = error {
+                print("Failed to fetch apps:", err)
+                return
+            }
+            //success case
+            self.appResult = results
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
