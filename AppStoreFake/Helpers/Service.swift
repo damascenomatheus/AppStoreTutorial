@@ -10,5 +10,28 @@ import Foundation
 
 class Service {
     
+    static let shared = Service()
     
+    
+    func fetchApi(url: String) {
+        let urlString = url
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            if let error = err {
+                print("Failed to fetch apps: ", error)
+                return
+            }
+                
+            guard let data = data else { return }
+                
+            do {
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                searchResult.results.forEach({print($0.trackName)})
+                
+            } catch let jsonError {
+                print("Failed to load json: ", jsonError)
+            }
+            
+        }.resume()
+    }
 }

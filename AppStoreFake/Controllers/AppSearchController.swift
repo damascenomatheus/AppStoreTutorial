@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -32,30 +30,8 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
     var appResult = [Result]()
     
     func fetchItunesApps() {
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            if let error = err {
-                print("Failed to fetch apps: ", error)
-                return
-            }
-                
-            guard let data = data else { return }
-                
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                
-                self.appResult = searchResult.results
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-                
-            } catch let jsonError {
-                print("Failed to load json: ", jsonError)
-            }
-            
-        }.resume()
+        let urlItunes = "https://itunes.apple.com/search?term=instagram&entity=software"
+        Service.shared.fetchApi(url: urlItunes)
     }
 
     
@@ -67,7 +43,7 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Test", for: indexPath) as! SearchCollectionCell
         cell.appTitle.text = appResult[indexPath.row].trackName
         cell.categoryLabel.text = appResult[indexPath.row].primaryGenreName
-        cell.ratingsLabel.text = String(appResult[indexPath.row].userRatingCount)
+        cell.ratingsLabel.text = "\((appResult[indexPath.row].averageUserRating) ?? 0) ★"
         return cell
     }
     
