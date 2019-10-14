@@ -27,7 +27,7 @@ class CustomButton: UIButton {
         super.layoutSubviews()
         guard let title = titleLabel else { return }
         title.font = .boldSystemFont(ofSize: 13)
-        title.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        title.textColor = .systemBlue
         layer.cornerRadius = frame.height/2
     }
     
