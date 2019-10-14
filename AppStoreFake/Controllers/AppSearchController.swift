@@ -11,6 +11,8 @@ import UIKit
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    let service = Service()
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -24,15 +26,17 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionCell.self, forCellWithReuseIdentifier: "Test")
         
-        Service().fetchItunesApps()
+        service.fetchItunesApps()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return service.appResult.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Test", for: indexPath) as! SearchCollectionCell
+        cell.appTitle.text = service.appResult[indexPath.row].trackName
+        cell.categoryLabel.text = service.appResult[indexPath.row].primaryGenreName
         return cell
     }
     

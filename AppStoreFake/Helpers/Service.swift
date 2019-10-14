@@ -10,6 +10,8 @@ import Foundation
 
 class Service {
     
+    var appResult = [Result]()
+    
     func fetchItunesApps() {
         let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
         guard let url = URL(string: urlString) else { return }
@@ -24,9 +26,8 @@ class Service {
             do {
                 let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
                 
-                searchResult.results.forEach({
-                    print($0.trackName, $0.primaryGenreName)
-                })
+                self.appResult = searchResult.results
+                
             } catch let jsonError {
                 print("Failed to load json: ", jsonError)
             }
