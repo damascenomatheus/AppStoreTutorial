@@ -27,11 +27,16 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         fetchItunesApps()
     }
     
-    var appResult = [Result]()
+    fileprivate var appResult = [Result]()
     
     func fetchItunesApps() {
         let urlItunes = "https://itunes.apple.com/search?term=instagram&entity=software"
-        Service.shared.fetchApi(url: urlItunes)
+        Service.shared.fetchApi(url: urlItunes) { (searchResult) in
+            self.appResult = searchResult.results
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 
     
