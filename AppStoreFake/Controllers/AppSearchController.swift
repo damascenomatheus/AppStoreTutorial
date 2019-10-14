@@ -67,6 +67,7 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Test", for: indexPath) as! SearchCollectionCell
         cell.appTitle.text = appResult[indexPath.row].trackName
         cell.categoryLabel.text = appResult[indexPath.row].primaryGenreName
+        cell.ratingsLabel.text = String(appResult[indexPath.row].userRatingCount)
         return cell
     }
     
