@@ -11,7 +11,7 @@ import UIKit
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    let service = Service()
+    
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -26,17 +26,47 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionCell.self, forCellWithReuseIdentifier: "Test")
         
-        service.fetchItunesApps()
+        fetchItunesApps()
     }
     
+    var appResult = [Result]()
+    
+    func fetchItunesApps() {
+        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            if let error = err {
+                print("Failed to fetch apps: ", error)
+                return
+            }
+                
+            guard let data = data else { return }
+                
+            do {
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                
+                self.appResult = searchResult.results
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+                
+            } catch let jsonError {
+                print("Failed to load json: ", jsonError)
+            }
+            
+        }.resume()
+    }
+
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return service.appResult.count
+        return appResult.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Test", for: indexPath) as! SearchCollectionCell
-        cell.appTitle.text = service.appResult[indexPath.row].trackName
-        cell.categoryLabel.text = service.appResult[indexPath.row].primaryGenreName
+        cell.appTitle.text = appResult[indexPath.row].trackName
+        cell.categoryLabel.text = appResult[indexPath.row].primaryGenreName
         return cell
     }
     
