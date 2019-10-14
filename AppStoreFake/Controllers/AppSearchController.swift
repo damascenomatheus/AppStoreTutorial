@@ -39,7 +39,19 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
                 return
             }
             
-            print(data)
+            guard let data = data else { return }
+            
+            do {
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                
+                searchResult.results.forEach({
+                    print($0.trackName, $0.primaryGenreName)
+                })
+                
+            } catch let jsonError {
+                print("Failed to load json: ", jsonError)
+            }
+            
         }.resume()
     }
     
