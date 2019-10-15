@@ -15,6 +15,7 @@ class SearchCollectionCell: UICollectionViewCell {
         imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -35,6 +36,10 @@ class SearchCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        imageView.layer.borderWidth = 0.5
         return imageView
     }
         
