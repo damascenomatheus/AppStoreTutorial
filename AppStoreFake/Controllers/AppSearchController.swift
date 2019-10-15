@@ -52,9 +52,11 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Test", for: indexPath) as! SearchCollectionCell
-        cell.appTitle.text = appResult[indexPath.row].trackName
-        cell.categoryLabel.text = appResult[indexPath.row].primaryGenreName
-        cell.ratingsLabel.text = "\((appResult[indexPath.row].averageUserRating) ?? 0) ★"
+        cell.appTitle.text = appResult[indexPath.item].trackName
+        cell.categoryLabel.text = appResult[indexPath.item].primaryGenreName
+        cell.ratingsLabel.text = "\((appResult[indexPath.item].averageUserRating) ?? 0) ★"
+        let imageName = appResult[indexPath.item].artworkUrl100
+        cell.appImage.image = UIImage(named: imageName)
         return cell
     }
     
