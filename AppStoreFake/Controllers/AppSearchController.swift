@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -55,8 +56,10 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         cell.appTitle.text = appResult[indexPath.item].trackName
         cell.categoryLabel.text = appResult[indexPath.item].primaryGenreName
         cell.ratingsLabel.text = "\((appResult[indexPath.item].averageUserRating) ?? 0) ★"
-        let imageName = appResult[indexPath.item].artworkUrl100
-        cell.appImage.image = UIImage(named: imageName)
+        
+        let url = URL(string: appResult[indexPath.item].artworkUrl100)
+        cell.appImage.sd_setImage(with: url)
+        
         return cell
     }
     
