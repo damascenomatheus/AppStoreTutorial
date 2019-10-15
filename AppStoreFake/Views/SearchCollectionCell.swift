@@ -10,6 +10,29 @@ import UIKit
 
 class SearchCollectionCell: UICollectionViewCell {
     
+    var appResult: Result! {
+        didSet {
+            appTitle.text = appResult.trackName
+            categoryLabel.text = appResult.primaryGenreName
+            ratingsLabel.text = "\((appResult.averageUserRating) ?? 0) ★"
+                   
+            let urlIcon = URL(string: appResult.artworkUrl100)
+            let urlScreenshot1 = URL(string: appResult.screenshotUrls[0])
+            appImage.sd_setImage(with: urlIcon)
+            screenshotImage1.sd_setImage(with: urlScreenshot1)
+                  
+            if appResult.screenshotUrls.count > 1 {
+                let urlScreenshot2 = URL(string: appResult.screenshotUrls[1])
+                screenshotImage2.sd_setImage(with: urlScreenshot2)
+                screenshotImage3.backgroundColor = .white
+            }
+            if appResult.screenshotUrls.count > 2 {
+                let urlScreenshot3 = URL(string: appResult.screenshotUrls[2])
+                screenshotImage3.sd_setImage(with: urlScreenshot3)
+            }
+        }
+    }
+    
     let appImage: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .blue
@@ -40,6 +63,7 @@ class SearchCollectionCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
         imageView.layer.borderWidth = 0.5
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }
         
@@ -102,8 +126,9 @@ class SearchCollectionCell: UICollectionViewCell {
             appImage.widthAnchor.constraint(equalToConstant: 64),
             appImage.heightAnchor.constraint(equalToConstant: 64),
             
-            getButton.widthAnchor.constraint(equalToConstant: 80),
-            getButton.heightAnchor.constraint(equalToConstant: 32),
+            getButton.widthAnchor.constraint(equalToConstant: 50),
+            getButton.heightAnchor.constraint(equalToConstant: 22),
+            getButton.centerYAnchor.constraint(equalTo: infoStackView.centerYAnchor)
         ])
     }
     

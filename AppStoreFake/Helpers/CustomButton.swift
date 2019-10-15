@@ -26,7 +26,7 @@ class CustomButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let title = titleLabel else { return }
-        title.font = .boldSystemFont(ofSize: 13)
+        title.font = .boldSystemFont(ofSize: 11)
         title.textColor = .systemBlue
         layer.cornerRadius = frame.height/2
     }
