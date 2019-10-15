@@ -57,8 +57,20 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         cell.categoryLabel.text = appResult[indexPath.item].primaryGenreName
         cell.ratingsLabel.text = "\((appResult[indexPath.item].averageUserRating) ?? 0) ★"
         
-        let url = URL(string: appResult[indexPath.item].artworkUrl100)
-        cell.appImage.sd_setImage(with: url)
+        let urlIcon = URL(string: appResult[indexPath.item].artworkUrl100)
+        let urlScreenshot1 = URL(string: appResult[indexPath.item].screenshotUrls[0])
+        cell.appImage.sd_setImage(with: urlIcon)
+        cell.screenshotImage1.sd_setImage(with: urlScreenshot1)
+       
+        if appResult[indexPath.item].screenshotUrls.count > 1 {
+            let urlScreenshot2 = URL(string: appResult[indexPath.item].screenshotUrls[1])
+            cell.screenshotImage2.sd_setImage(with: urlScreenshot2)
+        }
+        if appResult[indexPath.item].screenshotUrls.count > 2 {
+            let urlScreenshot3 = URL(string: appResult[indexPath.item].screenshotUrls[2])
+            cell.screenshotImage3.sd_setImage(with: urlScreenshot3)
+        }
+        
         
         return cell
     }
