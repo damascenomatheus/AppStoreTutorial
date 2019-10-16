@@ -12,6 +12,8 @@ import SDWebImage
 
 class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -24,13 +26,18 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionCell.self, forCellWithReuseIdentifier: "Test")
-        
+        setupSearchBar()
         fetchItunesApps()
+    }
+    
+    fileprivate func setupSearchBar() {
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     fileprivate var appResult = [Result]()
     
-    func fetchItunesApps() {
+    fileprivate func fetchItunesApps() {
         let urlItunes = "https://itunes.apple.com/search?term=instagram&entity=software"
         Service.shared.fetchApi(url: urlItunes) { (results, error) in
             //fail case
