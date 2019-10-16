@@ -31,8 +31,10 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
     }
     
     fileprivate func setupSearchBar() {
+        definesPresentationContext = true
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
     }
     
     fileprivate var appResult = [Result]()
