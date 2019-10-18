@@ -24,7 +24,6 @@ class SearchCollectionCell: UICollectionViewCell {
             if appResult.screenshotUrls.count > 1 {
                 let urlScreenshot2 = URL(string: appResult.screenshotUrls[1])
                 screenshotImage2.sd_setImage(with: urlScreenshot2)
-                screenshotImage3.backgroundColor = .white
             }
             if appResult.screenshotUrls.count > 2 {
                 let urlScreenshot3 = URL(string: appResult.screenshotUrls[2])
@@ -35,7 +34,6 @@ class SearchCollectionCell: UICollectionViewCell {
     
     let appImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
@@ -57,7 +55,6 @@ class SearchCollectionCell: UICollectionViewCell {
     
     func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
