@@ -38,11 +38,24 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         searchController.searchBar.delegate = self
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        Service.shared.fetchApi(searchTerm: searchText) { (res, err) in
+            if let error = err {
+                print("Failed to search the app:", error)
+                return
+            }
+            self.appResult = res
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     fileprivate var appResult = [Result]()
     
     fileprivate func fetchItunesApps() {
-        let urlItunes = "https://itunes.apple.com/search?term=instagram&entity=software"
-        Service.shared.fetchApi(url: urlItunes) { (results, error) in
+        
+        Service.shared.fetchApi(searchTerm: "Instagram") { (results, error) in
             //fail case
             if let err = error {
                 print("Failed to fetch apps:", err)
