@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class AppSearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
@@ -35,6 +35,7 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
     }
     
     fileprivate var appResult = [Result]()
