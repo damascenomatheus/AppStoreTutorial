@@ -34,19 +34,26 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         definesPresentationContext = true
         navigationItem.searchController = self.searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
+    var timer: Timer?
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        Service.shared.fetchApi(searchTerm: searchText) { (res, err) in
-            if let error = err {
-                print("Failed to search the app:", error)
-                return
-            }
-            self.appResult = res
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+        
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
+            Service.shared.fetchApi(searchTerm: searchText) { (res, err) in
+                if let error = err {
+                    print("Failed to search the app:", error)
+                    return
+                }
+                self.appResult = res
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
