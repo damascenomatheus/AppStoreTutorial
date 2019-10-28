@@ -36,10 +36,13 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
-        view.addSubview(enterSearchTermLabel)
+        collectionView.addSubview(enterSearchTermLabel)
         NSLayoutConstraint.activate([
-            enterSearchTermLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            enterSearchTermLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            enterSearchTermLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 100),
+            enterSearchTermLabel.leftAnchor.constraint(equalTo: collectionView.leftAnchor, constant: 50),
+            enterSearchTermLabel.rightAnchor.constraint(equalTo: collectionView.rightAnchor, constant: 50),
+            enterSearchTermLabel.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 0),
+            
         ])
     }
     
