@@ -26,8 +26,8 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionCell.self, forCellWithReuseIdentifier: "Test")
+        
         setupSearchBar()
-        fetchItunesApps()
     }
     
     fileprivate func setupSearchBar() {
@@ -36,7 +36,22 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
+        view.addSubview(enterSearchTermLabel)
+        NSLayoutConstraint.activate([
+            enterSearchTermLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            enterSearchTermLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
+    
+    fileprivate let enterSearchTermLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Enter the search term above..."
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textAlignment = .center
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     var timer: Timer?
     
@@ -78,6 +93,7 @@ class AppSearchController: UICollectionViewController, UICollectionViewDelegateF
 
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        enterSearchTermLabel.isHidden = appResult.count != 0
         return appResult.count
     }
     
