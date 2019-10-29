@@ -15,7 +15,7 @@ class AppsController: BaseCollectionController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .yellow
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

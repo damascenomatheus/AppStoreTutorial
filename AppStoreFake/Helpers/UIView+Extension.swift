@@ -10,9 +10,9 @@ import UIKit
 
 extension UIView {
     
-    convenience init(_ status: Bool) {
+    convenience init(_ : Any) {
         self.init()
-        translatesAutoresizingMaskIntoConstraints = status
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func addSubviews(_ views: [UIView]) {
