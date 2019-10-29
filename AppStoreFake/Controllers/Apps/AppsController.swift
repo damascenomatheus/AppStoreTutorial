@@ -14,7 +14,7 @@ class AppsController: BaseCollectionController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .yellow
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
     }
     
@@ -29,4 +29,10 @@ class AppsController: BaseCollectionController {
     }
     
     
+}
+
+extension AppsController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        .init(width: view.frame.width, height: 250)
+    }
 }
