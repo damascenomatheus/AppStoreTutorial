@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,12 +18,13 @@
 		A423098A23229D9A00B97A3A /* AppStoreFakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423098923229D9A00B97A3A /* AppStoreFakeTests.swift */; };
 		A423099523229D9A00B97A3A /* AppStoreFakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423099423229D9A00B97A3A /* AppStoreFakeUITests.swift */; };
 		A42309A32322A58100B97A3A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42309A22322A58100B97A3A /* BaseTabBarController.swift */; };
-		A439C5E62338FE5800D2D87C /* AppSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E52338FE5800D2D87C /* AppSearchController.swift */; };
+		A439C5E62338FE5800D2D87C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E52338FE5800D2D87C /* SearchController.swift */; };
 		A439C5E9233944F900D2D87C /* SearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */; };
 		A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */; };
 		A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD24233A92EA00E20D15 /* CustomButton.swift */; };
 		A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */; };
 		A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */; };
+		A4E81E19236864530071BC46 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E81E18236864530071BC46 /* AppsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +68,13 @@
 		A423099423229D9A00B97A3A /* AppStoreFakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreFakeUITests.swift; sourceTree = "<group>"; };
 		A423099623229D9A00B97A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AppStoreFakeUITests/Info.plist; sourceTree = "<group>"; };
 		A42309A22322A58100B97A3A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
-		A439C5E52338FE5800D2D87C /* AppSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchController.swift; sourceTree = "<group>"; };
+		A439C5E52338FE5800D2D87C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCell.swift; sourceTree = "<group>"; };
 		A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A4BBBD24233A92EA00E20D15 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		A4E81E18236864530071BC46 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +125,6 @@
 				91693808BB06CE4C07DD8F2E /* Pods-AppStoreFakeUITests.debug.xcconfig */,
 				580414313468C1631560ACA4 /* Pods-AppStoreFakeUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -193,8 +194,9 @@
 		A4399AB52338F95B00095318 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4E81E172368643E0071BC46 /* Apps */,
 				A42309A22322A58100B97A3A /* BaseTabBarController.swift */,
-				A439C5E52338FE5800D2D87C /* AppSearchController.swift */,
+				A439C5E52338FE5800D2D87C /* SearchController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +219,14 @@
 				A410DB2F23540E9600B91131 /* Service.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A4E81E172368643E0071BC46 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				A4E81E18236864530071BC46 /* AppsController.swift */,
+			);
+			path = Apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,10 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A423097523229D9800B97A3A /* AppDelegate.swift in Sources */,
+				A4E81E19236864530071BC46 /* AppsController.swift in Sources */,
 				A42309A32322A58100B97A3A /* BaseTabBarController.swift in Sources */,
 				A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */,
 				A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */,
-				A439C5E62338FE5800D2D87C /* AppSearchController.swift in Sources */,
+				A439C5E62338FE5800D2D87C /* SearchController.swift in Sources */,
 				A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */,
 				A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */,
 				A410DB3023540E9600B91131 /* Service.swift in Sources */,
