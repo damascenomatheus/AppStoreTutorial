@@ -40,9 +40,9 @@ class SearchCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    let appTitle = UILabel(title: "App Name", fontSize: 18, color: .black)
-    let categoryLabel = UILabel(title: "Photos & Video", fontSize: 14, color: .black)
-    let ratingsLabel = UILabel(title: "9.26M", fontSize: 14, color: .lightGray)
+    let appTitle = UILabel(title: "App Name", font: .systemFont(ofSize: 18), color: .black)
+    let categoryLabel = UILabel(title: "Photos & Video", font: .systemFont(ofSize: 14), color: .black)
+    let ratingsLabel = UILabel(title: "9.26M", font: .systemFont(ofSize: 14), color: .lightGray)
     let getButton = CustomButton(type: .system)
     let infoStackView = UIStackView()
     let labelsStackView = VerticalStackView(spacing: 0)

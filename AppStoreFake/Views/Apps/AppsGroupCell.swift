@@ -10,13 +10,7 @@ import UIKit
 
 class AppsGroupCell: UICollectionViewCell {
     
-    let titleSectionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "App Section"
-        label.font = .boldSystemFont(ofSize: 30)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let titleSectionLabel = UILabel(title: "App Section", font: .boldSystemFont(ofSize: 30), color: .black)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +31,6 @@ class AppsGroupCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             titleSectionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             titleSectionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
-            titleSectionLabel.heightAnchor.constraint(equalToConstant: 30),
             titleSectionLabel.widthAnchor.constraint(equalToConstant: frame.width),
         ])
     }
