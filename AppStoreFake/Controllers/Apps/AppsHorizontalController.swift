@@ -20,6 +20,10 @@ class AppsHorizontalController: BaseCollectionController {
     fileprivate func setupCollection() {
         collectionView.backgroundColor = .blue
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        
+        if let lay = collectionViewLayout as? UICollectionViewFlowLayout {
+            lay.scrollDirection = .horizontal
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -30,5 +34,11 @@ class AppsHorizontalController: BaseCollectionController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         cell.backgroundColor = .red
         return cell
+    }
+}
+
+extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width, height: view.frame.height)
     }
 }
