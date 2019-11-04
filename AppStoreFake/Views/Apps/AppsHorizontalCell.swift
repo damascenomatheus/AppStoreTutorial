@@ -19,9 +19,9 @@ class AppsHorizontalCell: UICollectionViewCell {
         return imageView
     }()
     
-    let titleLabel = UILabel(title: "Title", font: .systemFont(ofSize: 18), color: .black)
-    let categoryLabel = UILabel(title: "Photos & Videos", font: .systemFont(ofSize: 14), color: .black)
-    let ratingLabel = UILabel(title: "Rating: 5.0", font: .systemFont(ofSize: 14), color: .lightGray)
+    let titleLabel = UILabel(title: "Life is Strange", font: .systemFont(ofSize: 18), color: .black)
+    let publisherLabel = UILabel(title: "Square Enix INC", font: .systemFont(ofSize: 12), color: .lightGray)
+    
     let getButton = CustomButton(type: .system)
     
     let labelStackView = VerticalStackView(spacing: 0)
@@ -44,8 +44,7 @@ class AppsHorizontalCell: UICollectionViewCell {
         
         labelStackView.addArrangedSubviews([
             titleLabel,
-            categoryLabel,
-            ratingLabel
+            publisherLabel
         ])
         
         cellStackView.addArrangedSubviews([
@@ -67,7 +66,7 @@ class AppsHorizontalCell: UICollectionViewCell {
             appImage.heightAnchor.constraint(equalToConstant: 64),
             appImage.widthAnchor.constraint(equalToConstant: 64),
         
-            getButton.widthAnchor.constraint(equalToConstant: 50),
+            getButton.widthAnchor.constraint(equalToConstant: 60),
             getButton.heightAnchor.constraint(equalToConstant: 22),
             getButton.centerYAnchor.constraint(equalTo: appImage.centerYAnchor),
             getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
