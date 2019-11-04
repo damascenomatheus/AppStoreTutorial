@@ -59,10 +59,10 @@ class AppsHorizontalCell: UICollectionViewCell {
     
     fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            cellStackView.topAnchor.constraint(equalTo: topAnchor),
             cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
             cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             appImage.heightAnchor.constraint(equalToConstant: 64),
             appImage.widthAnchor.constraint(equalToConstant: 64),
@@ -70,7 +70,7 @@ class AppsHorizontalCell: UICollectionViewCell {
             getButton.widthAnchor.constraint(equalToConstant: 50),
             getButton.heightAnchor.constraint(equalToConstant: 22),
             getButton.centerYAnchor.constraint(equalTo: appImage.centerYAnchor),
-            getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
+            getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
     
