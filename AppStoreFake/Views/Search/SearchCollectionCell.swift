@@ -44,9 +44,9 @@ class SearchCollectionCell: UICollectionViewCell {
     let categoryLabel = UILabel(title: "Photos & Video", font: .systemFont(ofSize: 14), color: .black)
     let ratingsLabel = UILabel(title: "9.26M", font: .systemFont(ofSize: 14), color: .lightGray)
     let getButton = CustomButton(type: .system)
-    let infoStackView = UIStackView()
+    let infoStackView = UIStackView(status: false)
     let labelsStackView = VerticalStackView(spacing: 0)
-    let screenshotStackView = UIStackView()
+    let screenshotStackView = UIStackView(status: false)
     let cellStackView = VerticalStackView(spacing: 16)
     
     lazy var screenshotImage1 = self.createScreenshotImageView()
