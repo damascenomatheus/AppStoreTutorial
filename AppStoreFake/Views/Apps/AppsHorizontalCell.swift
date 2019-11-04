@@ -15,16 +15,22 @@ class AppsHorizontalCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .blue
         imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
         return imageView
     }()
     
-    let titleLabel = UILabel(title: "Title", font: .boldSystemFont(ofSize: 18), color: .black)
-    let categoryLabel = UILabel(title: "Photos & Videos", font: .boldSystemFont(ofSize: 14), color: .black)
-    let ratingLabel = UILabel(title: "Rating: 5.0", font: .boldSystemFont(ofSize: 14), color: .lightGray)
+    let titleLabel = UILabel(title: "Title", font: .systemFont(ofSize: 18), color: .black)
+    let categoryLabel = UILabel(title: "Photos & Videos", font: .systemFont(ofSize: 14), color: .black)
+    let ratingLabel = UILabel(title: "Rating: 5.0", font: .systemFont(ofSize: 14), color: .lightGray)
+    let getButton = CustomButton(type: .system)
+    
+    let labelStackView = VerticalStackView(spacing: 0)
+    let cellStackView = UIStackView(status: false)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        buildViewHierarchy()
+        addSubview(cellStackView)
+        setupStackViews()
         setupConstraints()
     }
     
@@ -32,22 +38,41 @@ class AppsHorizontalCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func buildViewHierarchy() {
-        addSubviews([appImage])
+    fileprivate func setupStackViews() {
+        cellStackView.spacing = 12
+        cellStackView.alignment = .center
+        
+        labelStackView.addArrangedSubviews([
+            titleLabel,
+            categoryLabel,
+            ratingLabel
+        ])
+        
+        cellStackView.addArrangedSubviews([
+            appImage,
+            labelStackView,
+            getButton
+        ])
+        
+        
     }
     
     fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            appImage.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            appImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
+            cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            
             appImage.heightAnchor.constraint(equalToConstant: 64),
-            appImage.widthAnchor.constraint(equalToConstant: 64)
+            appImage.widthAnchor.constraint(equalToConstant: 64),
         
-        
+            getButton.widthAnchor.constraint(equalToConstant: 50),
+            getButton.heightAnchor.constraint(equalToConstant: 22),
+            getButton.centerYAnchor.constraint(equalTo: appImage.centerYAnchor),
+            getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32)
         ])
     }
     
-    fileprivate func setupStackViews() {
-        
-    }
+    
 }
