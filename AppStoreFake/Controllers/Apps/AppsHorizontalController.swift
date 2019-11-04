@@ -18,7 +18,7 @@ class AppsHorizontalController: BaseCollectionController {
     }
     
     fileprivate func setupCollection() {
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         if let lay = collectionViewLayout as? UICollectionViewFlowLayout {

@@ -24,7 +24,6 @@ class AppsController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .lightGray
         return cell
     }
     
@@ -33,6 +32,6 @@ class AppsController: BaseCollectionController {
 
 extension AppsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: view.frame.width, height: 250)
+        .init(width: view.frame.width, height: 300)
     }
 }

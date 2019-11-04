@@ -16,8 +16,6 @@ class AppsGroupCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray
-        horizontalController.view.backgroundColor = .blue
         horizontalController.view.translatesAutoresizingMaskIntoConstraints = false
         buildViewHierarchy()
         setupConstraints()
