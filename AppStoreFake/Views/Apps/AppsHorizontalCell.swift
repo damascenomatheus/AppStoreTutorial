@@ -58,7 +58,7 @@ class AppsHorizontalCell: UICollectionViewCell {
     
     fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            cellStackView.topAnchor.constraint(equalTo: topAnchor),
+            cellStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             cellStackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 8),
             cellStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             cellStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
