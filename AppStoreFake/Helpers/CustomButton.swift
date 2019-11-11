@@ -10,6 +10,7 @@ import UIKit
 
 class CustomButton: UIButton {
     
+    var fontSize: CGFloat?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,9 +19,10 @@ class CustomButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    convenience init(title: String, backgroundColor: UIColor) {
+    convenience init(title: String, fontSize: CGFloat, backgroundColor: UIColor) {
         self.init(type: .system)
         setTitle(title, for: .normal)
+        self.fontSize = fontSize
         self.backgroundColor = backgroundColor
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -32,7 +34,7 @@ class CustomButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let title = titleLabel else { return }
-        title.font = .boldSystemFont(ofSize: 14)
+        title.font = .boldSystemFont(ofSize: fontSize!)
         title.textColor = .systemBlue
         layer.cornerRadius = frame.height/2
     }

@@ -43,7 +43,7 @@ class SearchCollectionCell: UICollectionViewCell {
     let appTitle = UILabel(title: "App Name", font: .systemFont(ofSize: 18), color: .black)
     let categoryLabel = UILabel(title: "Photos & Video", font: .systemFont(ofSize: 14), color: .black)
     let ratingsLabel = UILabel(title: "9.26M", font: .systemFont(ofSize: 14), color: .lightGray)
-    let getButton = CustomButton(title: "GET", backgroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
+    let getButton = CustomButton(title: "GET", fontSize: 11, backgroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
     let infoStackView = UIStackView(status: false)
     let labelsStackView = VerticalStackView(spacing: 0)
     let screenshotStackView = UIStackView(status: false)

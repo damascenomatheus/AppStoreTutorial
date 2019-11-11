@@ -23,7 +23,7 @@ class AppsHorizontalCell: UICollectionViewCell {
     let titleLabel = UILabel(title: "Life is Strange", font: .systemFont(ofSize: 18), color: .black)
     let publisherLabel = UILabel(title: "Square Enix INC", font: .systemFont(ofSize: 12), color: .lightGray)
     
-    let getButton = CustomButton(title: "GET", backgroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
+    let getButton = CustomButton(title: "GET", fontSize: 14, backgroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
     
     let labelStackView = VerticalStackView(spacing: 0)
     let cellStackView = UIStackView(status: false)
@@ -67,8 +67,8 @@ class AppsHorizontalCell: UICollectionViewCell {
             appImage.heightAnchor.constraint(equalToConstant: 64),
             appImage.widthAnchor.constraint(equalToConstant: 64),
         
-            getButton.widthAnchor.constraint(equalToConstant: 72),
-            getButton.heightAnchor.constraint(equalToConstant: 28),
+            getButton.widthAnchor.constraint(equalToConstant: 80),
+            getButton.heightAnchor.constraint(equalToConstant: 32),
             getButton.centerYAnchor.constraint(equalTo: appImage.centerYAnchor),
             
         ])
