@@ -16,13 +16,14 @@ class AppsHorizontalCell: UICollectionViewCell {
         imageView.backgroundColor = .blue
         imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     let titleLabel = UILabel(title: "Life is Strange", font: .systemFont(ofSize: 18), color: .black)
     let publisherLabel = UILabel(title: "Square Enix INC", font: .systemFont(ofSize: 12), color: .lightGray)
     
-    let getButton = CustomButton(type: .system)
+    let getButton = CustomButton(title: "GET", backgroundColor: #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1))
     
     let labelStackView = VerticalStackView(spacing: 0)
     let cellStackView = UIStackView(status: false)

@@ -15,7 +15,13 @@ class CustomButton: UIButton {
         super.init(frame: frame)
         backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         setTitle("GET", for: .normal)
-        setTitleColor(.blue, for: .normal)
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    convenience init(title: String, backgroundColor: UIColor) {
+        self.init(type: .system)
+        setTitle(title, for: .normal)
+        self.backgroundColor = backgroundColor
         translatesAutoresizingMaskIntoConstraints = false
     }
     
