@@ -18,6 +18,7 @@
 		A423098A23229D9A00B97A3A /* AppStoreFakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423098923229D9A00B97A3A /* AppStoreFakeTests.swift */; };
 		A423099523229D9A00B97A3A /* AppStoreFakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423099423229D9A00B97A3A /* AppStoreFakeUITests.swift */; };
 		A42309A32322A58100B97A3A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42309A22322A58100B97A3A /* BaseTabBarController.swift */; };
+		A43498B22379A6E70040FC65 /* AppsPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43498B12379A6E70040FC65 /* AppsPageHeader.swift */; };
 		A439C5E62338FE5800D2D87C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E52338FE5800D2D87C /* SearchController.swift */; };
 		A439C5E9233944F900D2D87C /* SearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */; };
 		A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */; };
@@ -25,7 +26,7 @@
 		A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD24233A92EA00E20D15 /* CustomButton.swift */; };
 		A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */; };
 		A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */; };
-		A4E81E19236864530071BC46 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E81E18236864530071BC46 /* AppsController.swift */; };
+		A4E81E19236864530071BC46 /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E81E18236864530071BC46 /* AppsPageController.swift */; };
 		A4E81E1B23686C980071BC46 /* BaseCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E81E1A23686C980071BC46 /* BaseCollectionController.swift */; };
 		A4EC2E0723687F9200D76189 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EC2E0623687F9200D76189 /* AppsGroupCell.swift */; };
 		A4EC2E0A2369B07700D76189 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EC2E092369B07700D76189 /* AppsHorizontalController.swift */; };
@@ -72,6 +73,7 @@
 		A423099423229D9A00B97A3A /* AppStoreFakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreFakeUITests.swift; sourceTree = "<group>"; };
 		A423099623229D9A00B97A3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../AppStoreFakeUITests/Info.plist; sourceTree = "<group>"; };
 		A42309A22322A58100B97A3A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		A43498B12379A6E70040FC65 /* AppsPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeader.swift; sourceTree = "<group>"; };
 		A439C5E52338FE5800D2D87C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCell.swift; sourceTree = "<group>"; };
 		A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 		A4BBBD24233A92EA00E20D15 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
-		A4E81E18236864530071BC46 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
+		A4E81E18236864530071BC46 /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		A4E81E1A23686C980071BC46 /* BaseCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionController.swift; sourceTree = "<group>"; };
 		A4EC2E0623687F9200D76189 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		A4EC2E092369B07700D76189 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
@@ -234,7 +236,7 @@
 		A4E81E172368643E0071BC46 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				A4E81E18236864530071BC46 /* AppsController.swift */,
+				A4E81E18236864530071BC46 /* AppsPageController.swift */,
 				A4EC2E092369B07700D76189 /* AppsHorizontalController.swift */,
 			);
 			path = Apps;
@@ -253,6 +255,7 @@
 			children = (
 				A4EC2E0623687F9200D76189 /* AppsGroupCell.swift */,
 				A44EE1D623705B7000707E2E /* AppsHorizontalCell.swift */,
+				A43498B12379A6E70040FC65 /* AppsPageHeader.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -488,12 +491,13 @@
 				A4E81E1B23686C980071BC46 /* BaseCollectionController.swift in Sources */,
 				A423097523229D9800B97A3A /* AppDelegate.swift in Sources */,
 				A44EE1D723705B7000707E2E /* AppsHorizontalCell.swift in Sources */,
-				A4E81E19236864530071BC46 /* AppsController.swift in Sources */,
+				A4E81E19236864530071BC46 /* AppsPageController.swift in Sources */,
 				A42309A32322A58100B97A3A /* BaseTabBarController.swift in Sources */,
 				A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */,
 				A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */,
 				A4EC2E0723687F9200D76189 /* AppsGroupCell.swift in Sources */,
 				A439C5E62338FE5800D2D87C /* SearchController.swift in Sources */,
+				A43498B22379A6E70040FC65 /* AppsPageHeader.swift in Sources */,
 				A4BBBD2B2346BAEC00E20D15 /* VerticalStackView.swift in Sources */,
 				A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */,
 				A410DB3023540E9600B91131 /* Service.swift in Sources */,
