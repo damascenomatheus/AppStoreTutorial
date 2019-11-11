@@ -66,10 +66,10 @@ class AppsHorizontalCell: UICollectionViewCell {
             appImage.heightAnchor.constraint(equalToConstant: 64),
             appImage.widthAnchor.constraint(equalToConstant: 64),
         
-            getButton.widthAnchor.constraint(equalToConstant: 60),
-            getButton.heightAnchor.constraint(equalToConstant: 22),
+            getButton.widthAnchor.constraint(equalToConstant: 72),
+            getButton.heightAnchor.constraint(equalToConstant: 28),
             getButton.centerYAnchor.constraint(equalTo: appImage.centerYAnchor),
-            getButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            
         ])
     }
     
