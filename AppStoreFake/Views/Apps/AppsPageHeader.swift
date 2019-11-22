@@ -10,11 +10,10 @@ import UIKit
 
 class AppsPageHeader: UICollectionReusableView {
     
-    let controller = UIViewController()
+    let controller = AppsHeaderHorizontalController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        controller.view.backgroundColor = .purple
         controller.view.translatesAutoresizingMaskIntoConstraints = false
         buildViewHierarchy()
         setupConstraints()
