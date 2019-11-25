@@ -14,12 +14,12 @@ class AppsHeaderHorizontalController: BaseCollectionController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         setupLayoutDirection()
     }
     
     fileprivate func setupLayoutDirection() {
-        if let lay = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        if let lay = collectionViewLayout as? UICollectionViewFlowLayout {
             lay.scrollDirection = .horizontal
         }
     }
@@ -29,7 +29,6 @@ class AppsHeaderHorizontalController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .blue
         return cell
     }
 }
