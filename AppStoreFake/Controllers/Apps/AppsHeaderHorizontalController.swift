@@ -13,10 +13,16 @@ class AppsHeaderHorizontalController: BaseCollectionController {
     fileprivate let cellId = "cellId"
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        setupLayoutDirection()
     }
     
+    fileprivate func setupLayoutDirection() {
+        if let lay = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            lay.scrollDirection = .horizontal
+        }
+    }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
@@ -33,3 +39,4 @@ extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
         return .init(width: view.frame.width, height: 300)
     }
 }
+
