@@ -34,8 +34,7 @@ class AppsHeaderCell: UICollectionViewCell {
     }
     
     fileprivate func setupStack() {
-        headerStack.spacing = 12
-        headerStack.addSubviews([
+        headerStack.addArrangedSubviews([
             companyLabel,
             titleLabel,
             mainImage        
@@ -48,7 +47,7 @@ class AppsHeaderCell: UICollectionViewCell {
     
     fileprivate func setupConstraints() {
         NSLayoutConstraint.activate([
-            headerStack.topAnchor.constraint(equalTo: topAnchor),
+            headerStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             headerStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             headerStack.bottomAnchor.constraint(equalTo: bottomAnchor),
