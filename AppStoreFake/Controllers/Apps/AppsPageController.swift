@@ -22,7 +22,16 @@ class AppsPageController: BaseCollectionController {
     }
     
     fileprivate func fetchGames() {
-        Service.shared.fetchGames()
+        Service.shared.fetchGames { (apps, err) in
+            if let error = err {
+                print("Failed to fetch", error)
+                return
+            }
+            
+            apps.forEach { (app) in
+                print(app.name)
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
