@@ -13,7 +13,7 @@ class Service {
     static let shared = Service()
     
     
-    func fetchApi(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
+    func fetchSearch(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
@@ -38,11 +38,26 @@ class Service {
         }.resume()
     }
     
-    func fetchGames() {
+    func fetchGames(completion: @escaping ([AppResults], Error?) -> ()) {
         let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            print(data)
+            if let error = err {
+                completion([], error)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(AppsResult.self, from: data)
+                completion(results.feed.results, nil)
+            } catch let jsonError {
+                print("Failed to decode JSON", jsonError)
+                completion([], jsonError)
+            }
+            
+            
         }.resume()
         
     }

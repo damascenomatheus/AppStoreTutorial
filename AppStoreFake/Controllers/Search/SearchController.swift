@@ -55,7 +55,7 @@ class SearchController: BaseCollectionController, UICollectionViewDelegateFlowLa
         timer?.invalidate()
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
-            Service.shared.fetchApi(searchTerm: searchText) { (res, err) in
+            Service.shared.fetchSearch(searchTerm: searchText) { (res, err) in
                 if let error = err {
                     print("Failed to search the app:", error)
                     return
@@ -72,7 +72,7 @@ class SearchController: BaseCollectionController, UICollectionViewDelegateFlowLa
     
     fileprivate func fetchItunesApps() {
         
-        Service.shared.fetchApi(searchTerm: "Instagram") { (results, error) in
+        Service.shared.fetchSearch(searchTerm: "Instagram") { (results, error) in
             //fail case
             if let err = error {
                 print("Failed to fetch apps:", err)
