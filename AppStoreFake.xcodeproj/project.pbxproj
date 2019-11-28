@@ -175,6 +175,7 @@
 		A423097323229D9800B97A3A /* AppStoreFake */ = {
 			isa = PBXGroup;
 			children = (
+				A4B151E8239005B2002A6EED /* Service */,
 				A410DB2C235408BE00B91131 /* Model */,
 				A4BBBD292346BACC00E20D15 /* Helpers */,
 				A439C5E7233944AA00D2D87C /* Views */,
@@ -225,6 +226,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A4B151E8239005B2002A6EED /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A410DB2F23540E9600B91131 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		A4BBBD292346BACC00E20D15 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +241,6 @@
 				A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */,
 				A4BBBD24233A92EA00E20D15 /* CustomButton.swift */,
 				A4BBBD2A2346BAEC00E20D15 /* VerticalStackView.swift */,
-				A410DB2F23540E9600B91131 /* Service.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

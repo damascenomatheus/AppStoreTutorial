@@ -6,7 +6,7 @@
 //  Copyright © 2019 Matheus Damasceno. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Service {
     
@@ -36,5 +36,14 @@ class Service {
             }
             
         }.resume()
+    }
+    
+    func fetchGames() {
+        let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            print(data)
+        }
+        
     }
 }
