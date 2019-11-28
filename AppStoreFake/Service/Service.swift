@@ -43,7 +43,7 @@ class Service {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             print(data)
-        }
+        }.resume()
         
     }
 }
