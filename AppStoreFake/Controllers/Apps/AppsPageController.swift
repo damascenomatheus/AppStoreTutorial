@@ -12,6 +12,7 @@ class AppsPageController: BaseCollectionController {
     
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
+    fileprivate var appsGroup: AppsResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,10 @@ class AppsPageController: BaseCollectionController {
                 return
             }
             
-            apps.forEach { (app) in
-                print(app.name)
+            guard let appsResult = apps else { return }
+            self.appsGroup = appsResult
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
         }
     }
@@ -48,7 +51,8 @@ class AppsPageController: BaseCollectionController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
+        cell.titleSectionLabel.text = appsGroup?.feed.title
         return cell
     }
     
