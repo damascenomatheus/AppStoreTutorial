@@ -53,6 +53,8 @@ class AppsPageController: BaseCollectionController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
         cell.titleSectionLabel.text = appsGroup?.feed.title
+        cell.horizontalController.appsGroup = appsGroup
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
     

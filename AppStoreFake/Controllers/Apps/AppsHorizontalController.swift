@@ -11,6 +11,7 @@ import UIKit
 class AppsHorizontalController: BaseCollectionController {
     
     fileprivate let cellId = "cellId"
+    var appsGroup: AppsResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,11 @@ class AppsHorizontalController: BaseCollectionController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appsGroup?.feed.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHorizontalCell
         return cell
     }
 }
