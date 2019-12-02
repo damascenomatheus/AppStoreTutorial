@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppsHorizontalController: BaseCollectionController {
     
@@ -32,6 +33,10 @@ class AppsHorizontalController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHorizontalCell
+        let appItem = appsGroup?.feed.results[indexPath.item]
+        cell.titleLabel.text = appItem?.name
+        cell.publisherLabel.text = appItem?.artistName
+        cell.appImage.sd_setImage(with: URL(string: appItem?.artworkUrl100 ?? ""), completed: nil)
         return cell
     }
 }
