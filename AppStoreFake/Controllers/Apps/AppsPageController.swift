@@ -12,7 +12,6 @@ class AppsPageController: BaseCollectionController {
     
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
-    fileprivate var appsGroup: AppsResult?
     fileprivate var groups = [AppsResult]()
     
     override func viewDidLoad() {
@@ -31,7 +30,6 @@ class AppsPageController: BaseCollectionController {
             }
             
             guard let appsResult = apps else { return }
-            self.appsGroup = appsResult
             self.groups.append(appsResult)
             self.groups.append(appsResult)
             DispatchQueue.main.async {
@@ -55,7 +53,8 @@ class AppsPageController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
-        cell.titleSectionLabel.text = appsGroup?.feed.title
+        let appsGroup = groups[indexPath.item]
+        cell.titleSectionLabel.text = appsGroup.feed.title
         cell.horizontalController.appsGroup = appsGroup
         cell.horizontalController.collectionView.reloadData()
         return cell
