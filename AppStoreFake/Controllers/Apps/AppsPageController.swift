@@ -13,6 +13,7 @@ class AppsPageController: BaseCollectionController {
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
     fileprivate var appsGroup: AppsResult?
+    fileprivate var groups = [AppsResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
