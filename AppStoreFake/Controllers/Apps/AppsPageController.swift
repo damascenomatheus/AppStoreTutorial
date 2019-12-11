@@ -33,6 +33,7 @@ class AppsPageController: BaseCollectionController {
             guard let appsResult = apps else { return }
             self.appsGroup = appsResult
             self.groups.append(appsResult)
+            self.groups.append(appsResult)
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
