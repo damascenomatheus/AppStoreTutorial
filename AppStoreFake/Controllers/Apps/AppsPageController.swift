@@ -31,7 +31,6 @@ class AppsPageController: BaseCollectionController {
             
             guard let appsResult = apps else { return }
             self.groups.append(appsResult)
-            self.groups.append(appsResult)
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
