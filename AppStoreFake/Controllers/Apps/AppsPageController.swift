@@ -49,6 +49,19 @@ class AppsPageController: BaseCollectionController {
             dispatchGroup.leave()
         }
         
+        dispatchGroup.notify(queue: .main) {
+            if let group = group1 {
+                self.groups.append(group)
+            }
+            if let group = group2 {
+                self.groups.append(group)
+            }
+            if let group = group3 {
+                self.groups.append(group)
+            }
+            self.collectionView.reloadData()
+        }
+        
         
     }
     
@@ -58,7 +71,7 @@ class AppsPageController: BaseCollectionController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        return .init(width: view.frame.width, height: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
