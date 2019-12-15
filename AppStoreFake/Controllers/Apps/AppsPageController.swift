@@ -19,10 +19,15 @@ class AppsPageController: BaseCollectionController {
         collectionView.backgroundColor = .white
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
-        fetchGames()
+        fetchData()
     }
     
-    fileprivate func fetchGames() {
+    fileprivate func fetchData() {
+        
+        var group1: AppsResult?
+        var group2: AppsResult?
+        var group3: AppsResult?
+        
         Service.shared.fetchGames { (apps, err) in
             if let error = err {
                 print("Failed to fetch", error)
