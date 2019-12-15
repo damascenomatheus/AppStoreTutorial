@@ -28,18 +28,28 @@ class AppsPageController: BaseCollectionController {
         var group2: AppsResult?
         var group3: AppsResult?
         
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
         Service.shared.fetchGames { (apps, err) in
-            if let error = err {
-                print("Failed to fetch", error)
-                return
-            }
-            
             guard let appsResult = apps else { return }
-            self.groups.append(appsResult)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+            group1 = appsResult
+            dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        Service.shared.fetchAppGroups(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/50/explicit.json") { (apps, err) in
+            guard let appsResult = apps else { return }
+            group2 = appsResult
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        Service.shared.fetchAppGroups(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json") { (apps, err) in
+            guard let appsResult = apps else { return }
+            group3 = appsResult
+            dispatchGroup.leave()
+        }
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
