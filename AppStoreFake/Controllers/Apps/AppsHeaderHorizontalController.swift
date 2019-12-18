@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AppsHeaderHorizontalController: BaseCollectionController {
     
@@ -41,6 +42,10 @@ class AppsHeaderHorizontalController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
+        let headerDataItem = headerData?[indexPath.item]
+        cell.companyLabel.text = headerDataItem?.name
+        cell.mainImage.sd_setImage(with: URL(string: headerDataItem?.imageUrl ?? ""), completed: nil)
+        cell.titleLabel.text = headerDataItem?.tagline
         return cell
     }
 }
