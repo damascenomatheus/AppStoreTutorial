@@ -11,11 +11,23 @@ import UIKit
 class AppsHeaderHorizontalController: BaseCollectionController {
     
     fileprivate let cellId = "cellId"
+    fileprivate var headerData: [HeaderData]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
         setupLayoutDirection()
+        fetchData()
+    }
+    
+    fileprivate func fetchData() {
+        Service.shared.fetchHeaderData { (headerResults, error) in
+            self.headerData = headerResults
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     fileprivate func setupLayoutDirection() {
