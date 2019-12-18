@@ -12,7 +12,6 @@ class Service {
     
     static let shared = Service()
     
-    
     func fetchSearch(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
         guard let url = URL(string: urlString) else { return }
@@ -66,6 +65,28 @@ class Service {
                 print(jsonError)
             }
             
+        }.resume()
+    }
+    
+    func fetchHeaderData(completion: @escaping ([HeaderData]?, Error?) -> Void) {
+        guard let url = URL(string: "https://api.letsbuildthatapp.com/appstore/social") else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            if let error = err {
+                completion(nil,error)
+                print(error)
+                return
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let result = try JSONDecoder().decode([HeaderData].self, from: data)
+                completion(result,nil)
+            } catch let jsonError {
+                completion(nil, jsonError)
+                print(jsonError)
+            }
         }.resume()
     }
 }
