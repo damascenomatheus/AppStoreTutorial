@@ -25,6 +25,7 @@
 		A439C5E9233944F900D2D87C /* SearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */; };
 		A439C5EB23394C3E00D2D87C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */; };
 		A44EE1D723705B7000707E2E /* AppsHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44EE1D623705B7000707E2E /* AppsHorizontalCell.swift */; };
+		A46ED09523A9AF6B00EB3711 /* HeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46ED09423A9AF6B00EB3711 /* HeaderData.swift */; };
 		A4B151EA2390088C002A6EED /* AppsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B151E92390088C002A6EED /* AppsResult.swift */; };
 		A4BBBD25233A92EA00E20D15 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD24233A92EA00E20D15 /* CustomButton.swift */; };
 		A4BBBD27233BF4BF00E20D15 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */; };
@@ -83,6 +84,7 @@
 		A439C5E8233944F900D2D87C /* SearchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCell.swift; sourceTree = "<group>"; };
 		A439C5EA23394C3E00D2D87C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		A44EE1D623705B7000707E2E /* AppsHorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalCell.swift; sourceTree = "<group>"; };
+		A46ED09423A9AF6B00EB3711 /* HeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderData.swift; sourceTree = "<group>"; };
 		A4B151E92390088C002A6EED /* AppsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsResult.swift; sourceTree = "<group>"; };
 		A4BBBD24233A92EA00E20D15 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A4BBBD26233BF4BF00E20D15 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				A410DB2D235408CF00B91131 /* SearchResult.swift */,
 				A4B151E92390088C002A6EED /* AppsResult.swift */,
+				A46ED09423A9AF6B00EB3711 /* HeaderData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46ED09523A9AF6B00EB3711 /* HeaderData.swift in Sources */,
 				A4E81E1B23686C980071BC46 /* BaseCollectionController.swift in Sources */,
 				A423097523229D9800B97A3A /* AppDelegate.swift in Sources */,
 				A44EE1D723705B7000707E2E /* AppsHorizontalCell.swift in Sources */,
