@@ -48,6 +48,11 @@ class AppsPageController: BaseCollectionController {
             group3 = appsResult
             dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        Service.shared.fetchHeaderData { (apps, err) in
+            guard let appResult = apps else { return }
+            dispatchGroup.leave()
+        }
         
         dispatchGroup.notify(queue: .main) {
             if let group = group1 {
