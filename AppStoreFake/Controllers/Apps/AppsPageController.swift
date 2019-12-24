@@ -47,6 +47,7 @@ class AppsPageController: BaseCollectionController {
         var group1: AppsResult?
         var group2: AppsResult?
         var group3: AppsResult?
+        var group4: [HeaderData]?
         
         let dispatchGroup = DispatchGroup()
         
@@ -71,7 +72,7 @@ class AppsPageController: BaseCollectionController {
         dispatchGroup.enter()
         Service.shared.fetchHeaderData { (apps, err) in
             guard let appResult = apps else { return }
-            self.headerData = appResult
+            group4 = appResult
             dispatchGroup.leave()
         }
         
@@ -84,6 +85,9 @@ class AppsPageController: BaseCollectionController {
             }
             if let group = group3 {
                 self.groups.append(group)
+            }
+            if let groupHeader = group4 {
+                self.headerData = groupHeader
             }
             self.activity.stopAnimating()
             self.collectionView.reloadData()
