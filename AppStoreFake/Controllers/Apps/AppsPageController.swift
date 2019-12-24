@@ -10,6 +10,14 @@ import UIKit
 
 class AppsPageController: BaseCollectionController {
     
+    let activity: UIActivityIndicatorView = {
+        let acv = UIActivityIndicatorView(status: false)
+        acv.hidesWhenStopped = true
+        acv.color = .black
+        acv.startAnimating()
+        return acv
+    }()
+    
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
     fileprivate var groups = [AppsResult]()
@@ -20,7 +28,18 @@ class AppsPageController: BaseCollectionController {
         collectionView.backgroundColor = .white
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        view.addSubview(activity)
         fetchData()
+        setupActivityIndicatorConstraint()
+    }
+    
+    func setupActivityIndicatorConstraint() {
+        NSLayoutConstraint.activate([
+            activity.topAnchor.constraint(equalTo: view.topAnchor),
+            activity.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            activity.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            activity.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     fileprivate func fetchData() {
@@ -66,6 +85,7 @@ class AppsPageController: BaseCollectionController {
             if let group = group3 {
                 self.groups.append(group)
             }
+            self.activity.stopAnimating()
             self.collectionView.reloadData()
         }
         
