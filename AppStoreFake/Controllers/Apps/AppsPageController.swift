@@ -13,6 +13,7 @@ class AppsPageController: BaseCollectionController {
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
     fileprivate var groups = [AppsResult]()
+    var headerData: [HeaderData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class AppsPageController: BaseCollectionController {
         dispatchGroup.enter()
         Service.shared.fetchHeaderData { (apps, err) in
             guard let appResult = apps else { return }
+            self.headerData = appResult
             dispatchGroup.leave()
         }
         
@@ -72,7 +74,7 @@ class AppsPageController: BaseCollectionController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! AppsPageHeader
-        
+        header.controller.headerData = self.headerData
         return header
     }
     
