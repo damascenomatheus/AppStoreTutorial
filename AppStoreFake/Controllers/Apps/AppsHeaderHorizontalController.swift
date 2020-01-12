@@ -12,7 +12,7 @@ import SDWebImage
 class AppsHeaderHorizontalController: BaseCollectionController {
     
     fileprivate let cellId = "cellId"
-    var headerData: [HeaderData]?
+    var headerData = [HeaderData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +27,15 @@ class AppsHeaderHorizontalController: BaseCollectionController {
         }
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return headerData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderCell
-        let headerDataItem = headerData?[indexPath.item]
-        cell.companyLabel.text = headerDataItem?.name
-        cell.mainImage.sd_setImage(with: URL(string: headerDataItem?.imageUrl ?? ""), completed: nil)
-        cell.titleLabel.text = headerDataItem?.tagline
+        let headerDataItem = headerData[indexPath.item]
+        cell.companyLabel.text = headerDataItem.name
+        cell.mainImage.sd_setImage(with: URL(string: headerDataItem.imageUrl), completed: nil)
+        cell.titleLabel.text = headerDataItem.tagline
         return cell
     }
 }
@@ -46,7 +46,7 @@ extension AppsHeaderHorizontalController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 8, bottom: 0, right: 0)
+        return .init(top: 0, left: 8, bottom: 0, right: 8)
     }
 }
 

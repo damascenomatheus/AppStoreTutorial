@@ -16,7 +16,6 @@ class AppsHeaderCell: UICollectionViewCell {
     
     let mainImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
         imageView.contentMode = .scaleAspectFill
