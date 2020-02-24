@@ -69,25 +69,8 @@ class Service {
     }
     
     func fetchHeaderData(completion: @escaping ([HeaderData]?, Error?) -> Void) {
-        guard let url = URL(string: "https://api.letsbuildthatapp.com/appstore/social") else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            if let error = err {
-                completion(nil,error)
-                print(error)
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            do {
-                let result = try JSONDecoder().decode([HeaderData].self, from: data)
-                completion(result,nil)
-            } catch let jsonError {
-                completion(nil, jsonError)
-                print(jsonError)
-            }
-        }.resume()
+        let url = "https://api.letsbuildthatapp.com/appstore/social"
+        fetchGenericJSONData(urlString: url, completion: completion)
     }
     
     func fetchGenericJSONData<T: Decodable>(urlString: String, completion: @escaping (T?, Error?) -> Void) {
