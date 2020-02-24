@@ -12,32 +12,12 @@ class Service {
     
     static let shared = Service()
     
-    func fetchSearch(searchTerm: String, completion: @escaping ([Result], Error?) -> ()) {
+    func fetchSearch(searchTerm: String, completion: @escaping (SearchResult?, Error?) -> Void) {
         let urlString = "https://itunes.apple.com/search?term=\(searchTerm)&entity=software"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            if let error = err {
-                print("Failed to fetch apps: ", error)
-                completion([],error)
-                return
-            }
-                
-            guard let data = data else { return }
-                
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                completion(searchResult.results, nil)
-                
-                
-            } catch let jsonError {
-                print("Failed to load json: ", jsonError)
-                completion([],jsonError)
-            }
-            
-        }.resume()
+        fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
-    func fetchGames(completion: @escaping (AppsResult?, Error?) -> ()) {
+    func fetchGames(completion: @escaping (AppsResult?, Error?) -> Void) {
         let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
         
         fetchAppGroups(urlString: urlString, completion: completion)

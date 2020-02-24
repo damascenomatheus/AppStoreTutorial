@@ -60,7 +60,7 @@ class SearchController: BaseCollectionController, UICollectionViewDelegateFlowLa
                     print("Failed to search the app:", error)
                     return
                 }
-                self.appResult = res
+                self.appResult = res?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -72,14 +72,14 @@ class SearchController: BaseCollectionController, UICollectionViewDelegateFlowLa
     
     fileprivate func fetchItunesApps() {
         
-        Service.shared.fetchSearch(searchTerm: "Instagram") { (results, error) in
+        Service.shared.fetchSearch(searchTerm: "Instagram") { (res, error) in
             //fail case
             if let err = error {
                 print("Failed to fetch apps:", err)
                 return
             }
             //success case
-            self.appResult = results
+            self.appResult = res?.results ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
