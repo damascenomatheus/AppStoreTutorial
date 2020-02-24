@@ -45,27 +45,7 @@ class Service {
     }
     
     func fetchAppGroups(urlString: String, completion: @escaping (AppsResult?, Error?) -> Void) {
-        let url = URL(string: urlString)
-        
-        guard let urlString = url else { return }
-        
-        URLSession.shared.dataTask(with: urlString) { (data, resp, err) in
-            if let error = err {
-                completion(nil,error)
-                print(error)
-            }
-            
-            guard let data = data else { return }
-            
-            do {
-                let results = try JSONDecoder().decode(AppsResult.self, from: data)
-                completion(results,nil)
-            } catch let jsonError {
-                completion(nil,jsonError)
-                print(jsonError)
-            }
-            
-        }.resume()
+        fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
     func fetchHeaderData(completion: @escaping ([HeaderData]?, Error?) -> Void) {
