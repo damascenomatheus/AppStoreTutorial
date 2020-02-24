@@ -89,4 +89,26 @@ class Service {
             }
         }.resume()
     }
+    
+    func fetchGenericJSONData<T: Decodable>(urlString: String, completion: @escaping (T?, Error?) -> Void) {
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if let error = err {
+                completion(nil, error)
+                print(error)
+            }
+            
+            guard let data = data else { return }
+            
+            do {
+                let result = try JSONDecoder().decode(T.self, from: data)
+                completion(result,nil)
+            } catch let jsonError {
+                completion(nil, jsonError)
+                print(jsonError)
+            }
+            
+        }.resume()
+    }
 }
