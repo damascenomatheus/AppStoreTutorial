@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class AppsHorizontalController: BaseCollectionController {
+class AppsHorizontalController: HorizontalSnappingController {
     
     fileprivate let cellId = "cellId"
     var appsGroup: AppsResult?
@@ -22,9 +22,6 @@ class AppsHorizontalController: BaseCollectionController {
     fileprivate func setupCollection() {
         collectionView.backgroundColor = .white
         collectionView.register(AppsHorizontalCell.self, forCellWithReuseIdentifier: cellId)
-        if let lay = collectionViewLayout as? UICollectionViewFlowLayout {
-            lay.scrollDirection = .horizontal
-        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
