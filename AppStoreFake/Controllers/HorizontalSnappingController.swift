@@ -11,10 +11,17 @@ import UIKit
 class HorizontalSnappingController: UICollectionViewController {
     
     init() {
-        super.init(collectionViewLayout: UICollectionViewLayout())
+        let layout = SnappingLayout()
+        layout.scrollDirection = .horizontal
+        super.init(collectionViewLayout: layout)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class SnappingLayout: UICollectionViewFlowLayout {
+    
+    
 }
