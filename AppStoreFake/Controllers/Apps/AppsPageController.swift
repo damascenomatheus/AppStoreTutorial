@@ -13,7 +13,7 @@ class AppsPageController: BaseCollectionController {
     let activity: UIActivityIndicatorView = {
         let acv = UIActivityIndicatorView(status: false)
         acv.hidesWhenStopped = true
-        acv.color = .black
+        acv.color = .darkGray
         acv.startAnimating()
         return acv
     }()
