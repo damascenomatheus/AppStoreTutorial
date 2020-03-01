@@ -24,6 +24,13 @@ class Service {
         
     }
     
+    func fetchTopFree(completion: @escaping (AppsResult?, Error?) -> Void) {
+        let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/50/explicit.json"
+           
+        fetchAppGroups(urlString: urlString, completion: completion)
+           
+    }
+    
     func fetchAppGroups(urlString: String, completion: @escaping (AppsResult?, Error?) -> Void) {
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
