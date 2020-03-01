@@ -63,7 +63,7 @@ class AppsPageController: BaseCollectionController {
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        Service.shared.fetchAppGroups(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json") { (apps, err) in
+        Service.shared.fetchTopGrossing { (apps, err) in
             guard let appsResult = apps else { return }
             group3 = appsResult
             dispatchGroup.leave()
