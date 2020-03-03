@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class AppsHeaderHorizontalController: BaseCollectionController {
+class AppsHeaderHorizontalController: HorizontalSnappingController {
     
     fileprivate let cellId = "cellId"
     var headerData = [HeaderData]()
@@ -18,14 +18,8 @@ class AppsHeaderHorizontalController: BaseCollectionController {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(AppsHeaderCell.self, forCellWithReuseIdentifier: cellId)
-        setupLayoutDirection()
     }
-    
-    fileprivate func setupLayoutDirection() {
-        if let lay = collectionViewLayout as? UICollectionViewFlowLayout {
-            lay.scrollDirection = .horizontal
-        }
-    }
+     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return headerData.count
     }
