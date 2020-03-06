@@ -11,7 +11,7 @@ import SDWebImage
 
 class AppsHeaderHorizontalController: HorizontalSnappingController {
     
-    fileprivate let cellId = "cellId"
+    fileprivate let cellId = "cell"
     var headerData = [HeaderData]()
     
     override func viewDidLoad() {
